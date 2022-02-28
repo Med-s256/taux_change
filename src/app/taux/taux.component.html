@@ -1,0 +1,47 @@
+
+<form name= "formGroup" style="width: 50%; margin: auto; margin-top: 25mm; border: 1px solid;">
+  <div class="col col-lg-12" style="margin-bottom: 10mm;border: 1px solid; font-size: larger; background-color: rgb(208, 252, 237); height: 15mm; text-align: center; vertical-align: middle;">
+    Devise: Avengers
+  </div>
+  <div class="form-row" style="display: flex; flex-direction: row; padding-left: 5mm; padding-right: 5mm ;">
+    <div class="form-group col-md-6" style="padding-right: 5mm;">
+      <label for="inputEmail4" >Devise</label>
+      <!-- <select class="form-select" [(ngModel)]="dev" aria-label="Default select example" >
+        <option selected>choisissez votre devise</option>
+        <option *ngFor="let d of ldevis;" type= "text" value= "d.devis" >{{d.devis}}</option>
+
+      </select> -->
+      <select name="dev" [(ngModel)]="udevis" (ngModelChange)="affiche()">
+        <option *ngFor="let level of ldevis" [ngValue]="level">{{level.codes}}</option>
+      </select>
+      
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputPassword4">Release date</label>
+      <input type="date" class="form-control" placeholder="April 24, 2019">
+    </div>
+  </div>
+
+
+<div style="display: flex; flex-direction: row; padding-left: 5mm; padding-right: 5mm ; margin-bottom: 10mm;">
+
+    <div class="form-group col-md-4" style="margin-right: 5mm;">
+      <label for="inputZip">En dinars</label>
+      <input type="number" class="form-control" name="dom" [(ngModel)]="dom" (ngModelChange)="calcul()">
+    </div>
+    <div class="form-group col-md-4" style="padding-right: 5mm;">
+      <label for="inputZip">En dollars</label>
+      <input type="text" class="form-control" id="inputZip" [value]="inter">
+    </div>
+    <div class="form-group col-md-4" style="padding-right: 5mm;">
+      <label for="inputZip">{{devise}}</label>
+      <input type="text" class="form-control" id="inputZip" [value]="world">
+    </div>
+  </div>
+<div style="display: flex; flex-direction: row; width: 50%; margin: auto; margin-bottom: 10mm;">
+  <button type="submit" class="btn btn-primary" style="margin-right: 5mm; margin-left: 5mm;" (click)="affiche()">Create</button>
+  <button type="submit" class="btn btn-primary" style="margin-right: 5mm;">Update</button>
+  <button type="submit" class="btn btn-primary">Delete</button>
+</div>
+
+</form>
